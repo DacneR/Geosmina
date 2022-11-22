@@ -1,0 +1,15 @@
+body{
+    background-image: url(img/background/background2.jpg);
+}
+
+div{
+    background-color: rgb(7, 84, 119); 
+    width: 25%; 
+    height: 25%; 
+    padding: 2%; 
+    border-radius: 2%;
+}
+
+.hD{
+    color: rgb(82, 194, 125);
+}
