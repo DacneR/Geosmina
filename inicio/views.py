@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
 
 # Create your views here.
@@ -21,7 +21,7 @@ def Index(request):
                 #Save user
                 Usuario.save()
                 login(request, Usuario)
-                return redirect('tasks')
+                return redirect('iniciar')
             except:
                 return render(request, 'index.html',{
                     'form': UserCreationForm,
@@ -44,3 +44,26 @@ def iniciar(request):
 
 def productos(request):
     return render(request, 'productos.html')
+
+def sigin(request):
+    if request.method == "GET":
+        return render(request, 'sigin.html',{
+            'form': AuthenticationForm
+        })
+    else: 
+        Usuario = authenticate(
+            request, username=request.POST['username'], password=request.POST['password'])
+
+        if Usuario is None:
+            return render(request, 'sigin.html',{
+                'form': AuthenticationForm,
+                'error': 'Usuario o contraseña incorrecta'
+            })
+        else:
+            login(request, Usuario)
+            return redirect('iniciar')
+
+        
+
+        
+        

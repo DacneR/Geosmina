@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.Index, name='index'),
     path('iniciar/', views.iniciar, name='iniciar'),
     path('acerca/', views.acerca, name='acerca'),
+    path('sigin/', views.sigin, name='sigin'),
     path('productos/', views.productos, name='productos')
     
 ]

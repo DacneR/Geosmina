@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+<style>
+    .cajonD{
+        width: 50%;
+            
+    }
+</style>
+
+{% block content %}
+
+
+<center>
+    <div class="cajonD">
+        <h1>Iniciar Sesion</h1>
+        {{error}}
+        <form action="/sigin/" method="POST">
+            {% csrf_token %}
+        
+            {{form.as_p}}
+
+            <button>Iniciar</button>
+        </form>
+    
+        <br>
+    
+    </div>
+</center>
+
+
+{% endblock %}
