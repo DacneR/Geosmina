@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={% static '/estilos.css' %}>
-    <title>Titulaso</title>
+    <title>Geosmina Web</title>
 </head>
 <body>
 
@@ -47,17 +47,30 @@
                         <a href="/acerca"><button>Nosotros</button></a>                
                     </li>
 
+                    
+
+                    <li>
+                        <a href="/productos"><button>Productos</button></a>                
+                    </li>
+
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="/comprar"><button>Comprar</button></a>                
+                    </li>
+
+                    <li>
+                        <a href="/cuenta"><button>Mi cuenta</button></a>                
+                    </li>
+                    {% else %}
                     <li>
                         <a href="/"><button>Registrar</button></a>                
                     </li>
 
                     <li>
-                        <a href="/sigin"><button>iniciar</button></a>                
+                        <a href="/sigin"><button>Iniciar</button></a>                
                     </li>
 
-                    <li>
-                        <a href="/productos"><button>Productos</button></a>                
-                    </li>
+                    {% endif %}
                     
                         
                 </ul>

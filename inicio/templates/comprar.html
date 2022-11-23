@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     
+    <center>
+        <h1>Pedido</h1>
+        <div>
+            <form action="/comprar/" method="POST">
+
+                {% csrf_token %}
+                {{form.as_p}}
+
+                <button>Pedir</button>
+            </form>
+        </div>
+    </center>
+    
+    
+{% endblock %}

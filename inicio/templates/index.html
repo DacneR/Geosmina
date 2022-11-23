@@ -6,7 +6,10 @@
 
 
 <center>
-        
+    {% if user.is_authenticated %}
+    
+    <h1>Bienvenido  Geosmina</h1>
+    {% else %}
     <div>
         <h3>
             Disfruta de tu cuenta en nuestra web de Geosmina. ¡Si no tienes una cuenta, créala ahora mismo!
@@ -21,10 +24,12 @@
             {{form.as_p}}
 
             <button>
-                Registrar Usuario
+                Registrar 
             </button>
         </form>
     </div>
+    {% endif %}
+    
 </center>
 
 {% endblock %}

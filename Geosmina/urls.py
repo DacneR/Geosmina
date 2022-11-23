@@ -23,6 +23,8 @@ urlpatterns = [
     path('iniciar/', views.iniciar, name='iniciar'),
     path('acerca/', views.acerca, name='acerca'),
     path('sigin/', views.sigin, name='sigin'),
-    path('productos/', views.productos, name='productos')
+    path('productos/', views.productos, name='productos'),
+    path('comprar/', views.comprar, name='comprar'),
+    path('cuenta/', views.cuenta, name='cuenta')
     
 ]

@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from django.http import HttpResponse
-
+#from django.http import HttpResponse
+from.forms import InicioForm
 # Create your views here.
 
 def Index(request):
@@ -62,6 +62,22 @@ def sigin(request):
         else:
             login(request, Usuario)
             return redirect('iniciar')
+
+def comprar(request):
+
+    if request.method == 'GET':
+        return render(request, 'comprar.html', {
+        'form' : InicioForm
+        })
+    else:
+        form = InicioForm(request.POST)
+        new_form = form.save(commit=False)
+        new_form.user = request.user
+        new_form.save()
+        return redirect('/')
+
+def cuenta(request):
+    return render(request, 'cuenta.html')
 
         
 
