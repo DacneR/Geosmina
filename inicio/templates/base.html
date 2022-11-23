@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static '/estilos.css' %}>
+    <title>Titulaso</title>
+</head>
+<body>
+
+    <!---{% if user.is_authenticated %}
+                    {% endif %}--->
+    <style>
+        nav ul li{
+            list-style: armenian;
+            margin-left:  50px;
+            float: left;
+            
+        }
+        
+        .cajonD{
+            width: 100%;
+            
+        }
+
+        button{
+            background-color: rgb(5, 50, 71);
+            border: none;
+            width: 100px;
+            height: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    
+    <center>
+            <img src={% static 'img/logos/Geosmina.png'%}> 
+        
+        <div class="cajonD">
+            <nav >
+                <ul>
+                    <li>
+                        <a href="/acerca"><button>Nosotros</button></a>                
+                    </li>
+
+                    <li>
+                        <a href="/"><button>Registrar</button></a>                
+                    </li>
+
+                    <li>
+                        <a href="/iniciar"><button>iniciar</button></a>                
+                    </li>
+
+                    <li>
+                        <a href="/productos"><button>Productos</button></a>                
+                    </li>
+                    
+                        
+                </ul>
+            </nav>
+        </div>
+    </center>
+    
+    
+    <br>
+    
+    
+
+   {% block content %}
+   {% endblock %}    
+</body>
+</html>

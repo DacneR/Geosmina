@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth import login
 from django.http import HttpResponse
 
 # Create your views here.
@@ -19,16 +20,27 @@ def Index(request):
                 password=request.POST['password1'])
                 #Save user
                 Usuario.save()
-                return HttpResponse('Usuario creado')
+                login(request, Usuario)
+                return redirect('tasks')
             except:
-                return HttpResponse('Usuario ya existe')
-        return HttpResponse('Contraseñas no coinciden') 
+                return render(request, 'index.html',{
+                    'form': UserCreationForm,
+                    'error': 'Usuario ya existe'
+                })
+        return render(request, 'index.html',{
+            'form': UserCreationForm,
+            'error': 'Usuario ya existe'
+        }) 
+
+
+
+def acerca(request):
+    return render(request, 'acerca.html')
 
     
 
 def iniciar(request):
+    return render(request, 'iniciar.html')
 
-    
-
-
-    return render(request, 'home.html')
+def productos(request):
+    return render(request, 'productos.html')

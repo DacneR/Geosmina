@@ -1,32 +1,31 @@
+{% extends 'Base.html' %}
 {% load static %}
-    
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href={% static '/estilos.css' %}>
-    <title>Geosmina</title>
-</head>
-<body>
-    <center>
+
+{% block content %}
+
+
+
+<center>
         
-        <img src={% static 'img/logos/Geosmina.png'%}>
+    <div>
+        <h3>
+            Disfruta de tu cuenta en nuestra web de Geosmina. ¡Si no tienes una cuenta, créala ahora mismo!
+        </h3>
+    </div> 
     
-        <div> 
-            
-            <form method="POST">
-                {% csrf_token %}
-                {{form.as_p}}
+    <br>
+    <div> 
+        {{error}}
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
 
-                <button>
-                    Registrar Usuario
-                </button>
-            </form>
-        </div>
-    </center>
+            <button>
+                Registrar Usuario
+            </button>
+        </form>
+    </div>
+</center>
 
+{% endblock %}
 
-</body>
-</html>
